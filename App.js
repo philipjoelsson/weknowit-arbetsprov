@@ -3,12 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import HomePresenter from './components/presenters/homePresenter.js';
 import SearchCityPresenter from './components/presenters/searchCityPresenter.js';
 import SearchCountryPresenter from './components/presenters/searchCountryPresenter.js';
-
+import ChoosePresenter from './components/presenters/choosePresenter.js';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <SearchCountryPresenter />
+      <ChoosePresenter />
     </View>
   );
 }
