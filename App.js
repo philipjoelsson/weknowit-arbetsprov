@@ -4,11 +4,12 @@ import HomePresenter from './components/presenters/homePresenter.js';
 import SearchCityPresenter from './components/presenters/searchCityPresenter.js';
 import SearchCountryPresenter from './components/presenters/searchCountryPresenter.js';
 import ChoosePresenter from './components/presenters/choosePresenter.js';
+import ResultPresenter from './components/presenters/resultPresenter';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ChoosePresenter />
+      <ResultPresenter />
     </View>
   );
 }
