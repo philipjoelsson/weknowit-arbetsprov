@@ -1,15 +1,15 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
 
   return (
 
     <View style={styles.container}>
       <Text style={styles.title}> CityPop </Text>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={()=>props.onPress('SearchCity')}>
         <Text style={styles.text}> SEARCH BY CITY </Text>
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={()=>props.onPress('SearchCountry')}>
         <Text style={styles.text}> SEARCH BY COUNTRY </Text>
       </Pressable>
     </View>

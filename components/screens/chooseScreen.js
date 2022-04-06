@@ -1,18 +1,18 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 
-const ChooseScreen = () => {
+const ChooseScreen = (props) => {
 
   return (
 
     <View style={styles.container}>
       <Text style={styles.title}> FRANCE </Text>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result')}>
         <Text style={styles.text}> Paris </Text>
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result')}>
         <Text style={styles.text}> Marsielle </Text>
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result')}>
         <Text style={styles.text}> Lyon </Text>
       </Pressable>
     </View>

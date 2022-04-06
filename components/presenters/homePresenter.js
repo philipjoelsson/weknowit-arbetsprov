@@ -1,8 +1,12 @@
 import HomeScreen from './../screens/homeScreen.js';
 
-const HomePresenter = () => {
+const HomePresenter = ({ navigation }) => {
 
-  return <HomeScreen />
+  const ChangeScreen = (toScreen) => {
+    navigation.navigate(toScreen);
+  }
+
+  return <HomeScreen onPress={(toScreen)=>ChangeScreen(toScreen)}/>
 }
 
 export default HomePresenter;

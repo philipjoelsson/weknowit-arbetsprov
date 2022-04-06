@@ -1,14 +1,14 @@
 import { View, Text, Pressable, StyleSheet, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const SearchCountryScreen = () => {
+const SearchCountryScreen = (props) => {
 
   return (
 
     <View style={styles.container}>
       <Text style={styles.title}> SEARCH BY COUNTRY </Text>
       <TextInput style={styles.input} placeholder="Enter a country" textAlign='center'/>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={()=>props.onSearch('Choose')}>
         <Icon name='search1' size={40} color='black'/>
       </Pressable>
     </View>

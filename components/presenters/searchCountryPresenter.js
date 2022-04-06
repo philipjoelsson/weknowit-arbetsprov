@@ -1,8 +1,12 @@
 import SearchCountryScreen from './../screens/searchCountryScreen.js';
 
-const SearchCountryPresenter = () => {
+const SearchCountryPresenter = ({ navigation }) => {
 
-  return <SearchCountryScreen />
+  const ChangeScreen = (toScreen) => {
+    navigation.navigate(toScreen)
+  }
+
+  return <SearchCountryScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}/>
 }
 
 export default SearchCountryPresenter;

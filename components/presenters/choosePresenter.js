@@ -1,8 +1,12 @@
 import ChooseScreen from './../screens/chooseScreen.js';
 
-const ChoosePresenter = () => {
+const ChoosePresenter = ({ navigation }) => {
 
-  return <ChooseScreen />
+  const ChangeScreen = (toScreen) => {
+    navigation.navigate(toScreen)
+  }
+
+  return <ChooseScreen onChoose={(toScreen)=>ChangeScreen(toScreen)}/>
 }
 
 export default ChoosePresenter;

@@ -1,8 +1,12 @@
 import SearchCityScreen from './../screens/searchCityScreen.js';
 
-const SearchCityPresenter = () => {
+const SearchCityPresenter = ({ navigation }) => {
 
-  return <SearchCityScreen />
+  const ChangeScreen = (toScreen) => {
+    navigation.navigate(toScreen);
+  }
+
+  return <SearchCityScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}/>
 }
 
 export default SearchCityPresenter;
