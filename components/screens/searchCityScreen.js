@@ -7,7 +7,7 @@ const SearchCityScreen = (props) => {
 
     <View style={styles.container}>
       <Text style={styles.title}> SEARCH BY CITY </Text>
-      <TextInput style={styles.input} placeholder="Enter a city" />
+      <TextInput style={styles.input} value={props.search} placeholder="Enter a city" onChange={(e)=>props.setSearch(e.target.value)}/>
       <Pressable style={styles.button} onPress={()=>props.onSearch('Result')}>
         <Icon name='search1' size={40} color='black'/>
       </Pressable>

@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-const ResultScreen = () => {
+const ResultScreen = (props) => {
 
   return (
 
     <View style={styles.container}>
-      <Text style={styles.title}> PARIS </Text>
+      <Text style={styles.title}> {props.name} </Text>
       <View style={styles.box}>
         <Text style={styles.pop}> Population </Text>
-        <Text style={styles.number}> 2 224 000 </Text>
+        <Text style={styles.number}> {props.population} </Text>
       </View>
     </View>
 
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     top: 200,
     fontSize: 40,
     fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
   box: {
     justifyContent: 'center',
