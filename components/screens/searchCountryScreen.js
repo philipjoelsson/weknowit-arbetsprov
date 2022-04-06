@@ -7,7 +7,7 @@ const SearchCountryScreen = (props) => {
 
     <View style={styles.container}>
       <Text style={styles.title}> SEARCH BY COUNTRY </Text>
-      <TextInput style={styles.input} placeholder="Enter a country" textAlign='center'/>
+      <TextInput style={styles.input} value={props.search} placeholder="Enter a country" textAlign='center' onChangeText={(txt)=>props.setSearch(txt)}/>
       <Pressable style={styles.button} onPress={()=>props.onSearch('Choose')}>
         <Icon name='search1' size={40} color='black'/>
       </Pressable>

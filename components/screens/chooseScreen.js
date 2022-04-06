@@ -5,15 +5,15 @@ const ChooseScreen = (props) => {
   return (
 
     <View style={styles.container}>
-      <Text style={styles.title}> FRANCE </Text>
-      <Pressable style={styles.button} onPress={()=>props.onChoose('Result')}>
-        <Text style={styles.text}> Paris </Text>
+      <Text style={styles.title}> {props.country} </Text>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[0].name)}>
+        <Text style={styles.text}> {props.cities[0].name} </Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={()=>props.onChoose('Result')}>
-        <Text style={styles.text}> Marsielle </Text>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[1].name)}>
+        <Text style={styles.text}> {props.cities[1].name} </Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={()=>props.onChoose('Result')}>
-        <Text style={styles.text}> Lyon </Text>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[2].name)}>
+        <Text style={styles.text}> {props.cities[2].name} </Text>
       </Pressable>
     </View>
 
