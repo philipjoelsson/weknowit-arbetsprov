@@ -18,7 +18,8 @@ const SearchCityPresenter = ({ navigation }) => {
 
   return <SearchCityScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}
                            setSearch={(txt)=>setSearch(txt)}
-                           search={search}/>
+                           search={search}
+                           back={()=>navigation.goBack()}/>
 }
 
 export default SearchCityPresenter;

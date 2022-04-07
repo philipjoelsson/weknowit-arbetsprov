@@ -1,10 +1,17 @@
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet, SafeAreaView } from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const ChooseScreen = (props) => {
 
   return (
 
     <View style={styles.container}>
+      <SafeAreaView style={styles.header}>
+        <Pressable onPress={()=>props.back()}>
+          <Entypo name='arrow-left' size={40}/>
+        </Pressable>
+        <Text style={styles.headerText}> CityPop </Text>
+      </SafeAreaView>
       <Text style={styles.title}> {props.country} </Text>
       <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[0].name)}>
         <Text style={styles.text}> {props.cities[0].name} </Text>
@@ -51,5 +58,17 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
+  },
+  header: {
+    position: 'absolute',
+    left: 10,
+    top: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 20,
+    letterSpacing: 1,
+    fontWeight: '500',
   },
 })

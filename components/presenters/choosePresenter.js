@@ -18,7 +18,7 @@ const ChoosePresenter = ({ route, navigation }) => {
   React.useEffect(()=>{
     GetDataFromApi.searchCountry(route.params.search)
       .then((data) => {return GetDataFromApi.searchCities(data.geonames[0].countryCode)})
-      .then((data) => {setCities(data.geonames); console.log(data.geonames);})
+      .then((data) => setCities(data.geonames))
       .catch((error) => {
         alert('Could not find country');
       })
@@ -33,7 +33,8 @@ const ChoosePresenter = ({ route, navigation }) => {
           ) : (
             <ChooseScreen onChoose={(toScreen, city)=>ChangeScreen(toScreen, city)}
                           cities={cities}
-                          country={route.params.search}/>
+                          country={route.params.search}
+                          back={()=>navigation.goBack()}/>
           )
 }
 

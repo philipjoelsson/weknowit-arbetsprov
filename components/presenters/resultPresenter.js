@@ -27,7 +27,8 @@ const ResultPresenter = ({ route, navigation }) => {
             </View>
           ) : (
             <ResultScreen population={population}
-                          name={name}/>
+                          name={name}
+                          back={()=>navigation.goBack()}/>
           )
 }
 
