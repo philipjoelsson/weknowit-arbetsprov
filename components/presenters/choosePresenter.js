@@ -1,7 +1,7 @@
 import ChooseScreen from './../screens/chooseScreen.js';
-import { GetCountryFromApi } from './../geonamesApi.js';
+import GetDataFromApi from './../geonamesApi.js';
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
 const ChoosePresenter = ({ route, navigation }) => {
 
@@ -16,19 +16,33 @@ const ChoosePresenter = ({ route, navigation }) => {
   }
 
   React.useEffect(()=>{
-
-    GetCountryFromApi(route.params.search)
-      .then((data) => setCities(data.geonames.slice(0,3)))
+    GetDataFromApi.searchCountry(route.params.search)
+      .then((data) => {return GetDataFromApi.searchCities(data.geonames[0].countryCode)})
+      .then((data) => {setCities(data.geonames); console.log(data.geonames);})
       .catch((error) => {
-        console.error(error);
+        alert('Could not find country');
       })
       .finally(() => setIsLoading(false))
 
   }, [])
 
-  return isLoading ? <ActivityIndicator /> : <ChooseScreen onChoose={(toScreen, city)=>ChangeScreen(toScreen, city)}
-                                                           cities={cities}
-                                                           country={route.params.search}/>
+  return isLoading ? (
+            <View style={styles.container}>
+              <ActivityIndicator size='large' color='black'/>
+            </View>
+          ) : (
+            <ChooseScreen onChoose={(toScreen, city)=>ChangeScreen(toScreen, city)}
+                          cities={cities}
+                          country={route.params.search}/>
+          )
 }
 
 export default ChoosePresenter;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+})

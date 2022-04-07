@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     top: 200,
     fontSize: 40,
     fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
   button: {
     alignItems: 'center',

@@ -6,9 +6,14 @@ const SearchCityPresenter = ({ navigation }) => {
   const [search, setSearch] = React.useState('');
 
   const ChangeScreen = (toScreen) => {
-    navigation.navigate(toScreen, {
-      search: search,
-    });
+    if (search.length > 0) {
+      navigation.navigate(toScreen, {
+        search: search,
+      });
+    }
+    else {
+      alert('Please enter something before search')
+    }
   }
 
   return <SearchCityScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}
