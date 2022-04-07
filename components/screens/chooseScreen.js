@@ -13,13 +13,13 @@ const ChooseScreen = (props) => {
         <Text style={styles.headerText}> CityPop </Text>
       </SafeAreaView>
       <Text style={styles.title}> {props.country} </Text>
-      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[0].name)}>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[0])}>
         <Text style={styles.text}> {props.cities[0].name} </Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[1].name)}>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[1])}>
         <Text style={styles.text}> {props.cities[1].name} </Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[2].name)}>
+      <Pressable style={styles.button} onPress={()=>props.onChoose('Result', props.cities[2])}>
         <Text style={styles.text}> {props.cities[2].name} </Text>
       </Pressable>
     </View>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textTransform: 'uppercase',
+    textAlign: 'center',
   },
   button: {
     alignItems: 'center',

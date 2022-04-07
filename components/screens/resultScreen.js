@@ -15,7 +15,7 @@ const ResultScreen = (props) => {
       <Text style={styles.title}> {props.name} </Text>
       <View style={styles.box}>
         <Text style={styles.pop}> Population </Text>
-        <Text style={styles.number}> {props.population} </Text>
+        <Text style={styles.number}> {props.population.toLocaleString()} </Text>
       </View>
     </View>
 
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textTransform: 'uppercase',
+    textAlign: 'center',
   },
   box: {
     justifyContent: 'center',

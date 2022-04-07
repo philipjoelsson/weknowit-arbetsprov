@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet, TextInput, SafeAreaView } from 'react-native';
+import { View, Text, Pressable, StyleSheet, TextInput, SafeAreaView, ActivityIndicator } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 
@@ -14,6 +14,7 @@ const SearchCityScreen = (props) => {
         <Text style={styles.headerText}> CityPop </Text>
       </SafeAreaView>
       <Text style={styles.title}> SEARCH BY CITY </Text>
+      {props.loading ? <View style={styles.loader}><ActivityIndicator size='large' color='black'/></View> : <View></View>}
       <TextInput style={styles.input} value={props.search} placeholder="Enter a city" textAlign='center' onChangeText={(txt)=>props.setSearch(txt)}/>
       <Pressable style={styles.button} onPress={()=>props.onSearch('Result')}>
         <AntDesign name='search1' size={40} color='black'/>
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
     top: 200,
     fontSize: 30,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   input: {
     backgroundColor: '#fff',
@@ -67,5 +69,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     letterSpacing: 1,
     fontWeight: '500',
+  },
+  loader: {
+    position: 'absolute',
+    top: 300,
+    justifyContent: 'center',
   },
 })

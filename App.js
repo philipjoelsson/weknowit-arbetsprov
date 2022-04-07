@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomePresenter from './components/presenters/homePresenter.js';
@@ -10,9 +10,11 @@ import ResultPresenter from './components/presenters/resultPresenter';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
 
     <NavigationContainer>
+      <StatusBar barStyle='dark-content'/>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomePresenter} options={{headerShown: false}}/>
         <Stack.Screen name="SearchCity" component={SearchCityPresenter} options={{headerShown: false}}/>

@@ -5,31 +5,11 @@ import React from 'react';
 
 const ResultPresenter = ({ route, navigation }) => {
 
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [name, setName] = React.useState();
-  const [population, setPopulation] = React.useState();
+  const { name, population } = route.params;
 
-  React.useEffect(() => {
-    GetDataFromApi.searchCity(route.params.search)
-      .then((data) => {
-        setName(data.geonames[0].name);
-        setPopulation(data.geonames[0].population);
-      })
-      .catch((error) => {
-        alert('Could not find City');
-       })
-      .finally(() => setIsLoading(false))
-  }, [])
-
-  return isLoading ? (
-            <View style={styles.container}>
-              <ActivityIndicator size='large' color='black'/>
-            </View>
-          ) : (
-            <ResultScreen population={population}
-                          name={name}
-                          back={()=>navigation.goBack()}/>
-          )
+  return <ResultScreen population={population}
+                       name={name}
+                       back={()=>navigation.goBack()}/>
 }
 
 export default ResultPresenter;
