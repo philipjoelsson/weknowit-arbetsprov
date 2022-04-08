@@ -7,10 +7,10 @@ const ResultScreen = (props) => {
 
     <View style={styles.container}>
       <SafeAreaView style={styles.header}>
-        <Pressable onPress={()=>props.back()}>
+        <Pressable style={styles.backBtn} onPress={()=>props.back()}>
           <Entypo name='arrow-left' size={40}/>
+          <Text style={styles.headerText}> CityPop </Text>
         </Pressable>
-        <Text style={styles.headerText}> CityPop </Text>
       </SafeAreaView>
       <Text style={styles.title}> {props.name} </Text>
       <View style={styles.box}>
@@ -57,13 +57,17 @@ const styles = StyleSheet.create({
   header: {
     position: 'absolute',
     left: 10,
-    top: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
+    top: 40,
+    borderWidth: 1,
+    borderRadius: 4,
   },
   headerText: {
     fontSize: 20,
     letterSpacing: 1,
     fontWeight: '500',
+  },
+  backBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 })

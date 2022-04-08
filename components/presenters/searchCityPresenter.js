@@ -30,10 +30,10 @@ const SearchCityPresenter = ({ navigation }) => {
   }
 
   return <SearchCityScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}
-                            setSearch={(txt)=>setSearch(txt)}
-                            search={search}
-                            back={()=>navigation.goBack()}
-                            loading={isLoading}/>
+                           setSearch={(txt)=>setSearch(txt)}
+                           search={search}
+                           back={()=>navigation.goBack()}
+                           loading={isLoading}/>
 }
 
 export default SearchCityPresenter;

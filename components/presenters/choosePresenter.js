@@ -17,7 +17,7 @@ const ChoosePresenter = ({ route, navigation }) => {
 
   return <ChooseScreen onChoose={(toScreen, city)=>ChangeScreen(toScreen, city)}
                           cities={cities}
-                          country={search}
+                          country={cities[0].countryName}
                           back={()=>navigation.goBack()}/>
 }
 

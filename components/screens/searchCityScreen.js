@@ -8,10 +8,10 @@ const SearchCityScreen = (props) => {
 
     <View style={styles.container}>
       <SafeAreaView style={styles.header}>
-        <Pressable onPress={()=>props.back()}>
+        <Pressable style={styles.backBtn} onPress={()=>props.back()}>
           <Entypo name='arrow-left' size={40}/>
+          <Text style={styles.headerText}> CityPop </Text>
         </Pressable>
-        <Text style={styles.headerText}> CityPop </Text>
       </SafeAreaView>
       <Text style={styles.title}> SEARCH BY CITY </Text>
       {props.loading ? <View style={styles.loader}><ActivityIndicator size='large' color='black'/></View> : <View></View>}
@@ -61,9 +61,9 @@ const styles = StyleSheet.create({
   header: {
     position: 'absolute',
     left: 10,
-    top: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
+    top: 40,
+    borderWidth: 1,
+    borderRadius: 4,
   },
   headerText: {
     fontSize: 20,
@@ -74,5 +74,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 300,
     justifyContent: 'center',
+  },
+  backBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 })

@@ -32,10 +32,10 @@ const SearchCountryPresenter = ({ navigation }) => {
   }
 
   return <SearchCountryScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}
-                               setSearch={(txt)=>setSearch(txt)}
-                               search={search}
-                               back={()=>navigation.goBack()}
-                               loading={isLoading}/>
+                              setSearch={(txt)=>setSearch(txt)}
+                              search={search}
+                              back={()=>navigation.goBack()}
+                              loading={isLoading}/>
 }
 
 export default SearchCountryPresenter;
