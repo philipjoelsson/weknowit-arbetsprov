@@ -1,7 +1,7 @@
 import SearchCountryScreen from './../screens/searchCountryScreen.js';
 import GetDataFromApi from './../geonamesApi.js';
 import React from 'react';
-import { ActivityIndicator, View, StyleSheet } from 'react-native';
+import { ActivityIndicator, View, StyleSheet, Alert } from 'react-native';
 
 const SearchCountryPresenter = ({ navigation }) => {
 
@@ -23,11 +23,11 @@ const SearchCountryPresenter = ({ navigation }) => {
         })
         .catch((error) => {
           setIsLoading(false);
-          alert('Could not find country');
+          Alert.alert('Could not find country');
         })
     }
     else {
-      alert('Please enter something before search')
+      Alert.alert('Please enter something before search')
     }
   }
 

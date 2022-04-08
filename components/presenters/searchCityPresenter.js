@@ -1,7 +1,7 @@
 import SearchCityScreen from './../screens/searchCityScreen.js';
 import GetDataFromApi from './../geonamesApi.js';
 import React from 'react';
-import { ActivityIndicator, View, StyleSheet } from 'react-native';
+import { ActivityIndicator, View, StyleSheet, Alert } from 'react-native';
 
 const SearchCityPresenter = ({ navigation }) => {
 
@@ -21,11 +21,11 @@ const SearchCityPresenter = ({ navigation }) => {
          })
         .catch((error) => {
           setIsLoading(false);
-          alert('Could not find city');
+          Alert.alert('Could not find city');
          })
     }
     else {
-      alert('Please enter something before search')
+      Alert.alert('Please enter something before search')
     }
   }
 

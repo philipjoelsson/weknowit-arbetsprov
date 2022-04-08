@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   box: {
     justifyContent: 'center',
