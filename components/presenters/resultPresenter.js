@@ -9,7 +9,7 @@ const ResultPresenter = ({ route, navigation }) => {
 
   return <ResultScreen population={population}
                        name={name}
-                       back={()=>navigation.goBack()}/>
+                       back={()=>setTimeout(()=>{navigation.goBack()},200)}/>
 }
 
 export default ResultPresenter;

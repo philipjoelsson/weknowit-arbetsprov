@@ -1,4 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
+import Ripple from 'react-native-material-ripple';
 
 const HomeScreen = (props) => {
 
@@ -6,12 +7,20 @@ const HomeScreen = (props) => {
 
     <View style={styles.container}>
       <Text style={styles.title}> CityPop </Text>
-      <Pressable style={styles.button} onPress={()=>props.onPress('SearchCity')}>
+      <Ripple style={styles.button}
+              rippleColor='#fff'
+              rippleDuration={1000}
+              rippleOpacity={1}
+              onPress={()=>props.onPress('SearchCity')}>
         <Text style={styles.text}> SEARCH BY CITY </Text>
-      </Pressable>
-      <Pressable style={styles.button} onPress={()=>props.onPress('SearchCountry')}>
+      </Ripple>
+      <Ripple style={styles.button}
+              rippleColor='#fff'
+              rippleDuration={1000}
+              rippleOpacity={1}
+              onPress={()=>props.onPress('SearchCountry')}>
         <Text style={styles.text}> SEARCH BY COUNTRY </Text>
-      </Pressable>
+      </Ripple>
     </View>
 
   )

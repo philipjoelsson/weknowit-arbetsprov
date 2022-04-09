@@ -1,6 +1,8 @@
 import { View, Text, Pressable, StyleSheet, TextInput, SafeAreaView, ActivityIndicator } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
+import * as Haptics from 'expo-haptics';
+import Ripple from 'react-native-material-ripple';
 
 const SearchCountryScreen = (props) => {
 
@@ -8,15 +10,19 @@ const SearchCountryScreen = (props) => {
 
     <View style={styles.container}>
       <SafeAreaView style={styles.header}>
-        <Pressable style={styles.backBtn} onPress={()=>props.back()}>
+        <Ripple style={styles.backBtn}
+                rippleColor='black'
+                rippleDuration={1000}
+                rippleOpacity={1}
+                onPress={()=>props.back()}>
           <Entypo name='arrow-left' size={40}/>
           <Text style={styles.headerText}> CityPop </Text>
-        </Pressable>
+        </Ripple>
       </SafeAreaView>
       <Text style={styles.title}> SEARCH BY COUNTRY </Text>
       {props.loading ? <View style={styles.loader}><ActivityIndicator size='large' color='black' /></View> : <View></View>}
       <TextInput style={styles.input} value={props.search} placeholder="Enter a country" textAlign='center' onChangeText={(txt)=>props.setSearch(txt)}/>
-      <Pressable style={styles.button} onPress={()=>props.onSearch('Choose')}>
+      <Pressable style={({ pressed }) => [{transform: pressed ? [{ scale: 0.8 }] : [{ scale: 1 }] }, styles.button]} onPress={()=> {props.onSearch('Choose'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}}>
         <AntDesign name='search1' size={40} color='black'/>
       </Pressable>
     </View>
@@ -62,7 +68,7 @@ const styles = StyleSheet.create({
   header: {
     position: 'absolute',
     left: 10,
-    top: 40,
+    top: 50,
     borderWidth: 1,
     borderRadius: 4,
   },

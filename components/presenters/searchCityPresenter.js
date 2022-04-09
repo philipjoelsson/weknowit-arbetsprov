@@ -32,7 +32,7 @@ const SearchCityPresenter = ({ navigation }) => {
   return <SearchCityScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}
                            setSearch={(txt)=>setSearch(txt)}
                            search={search}
-                           back={()=>navigation.goBack()}
+                           back={()=>setTimeout(()=>{navigation.goBack()},200)}
                            loading={isLoading}/>
 }
 

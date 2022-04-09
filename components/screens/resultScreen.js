@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Ripple from 'react-native-material-ripple';
 
 const ResultScreen = (props) => {
 
@@ -7,10 +8,14 @@ const ResultScreen = (props) => {
 
     <View style={styles.container}>
       <SafeAreaView style={styles.header}>
-        <Pressable style={styles.backBtn} onPress={()=>props.back()}>
+        <Ripple style={styles.backBtn}
+                rippleColor='black'
+                rippleDuration={1000}
+                rippleOpacity={1}
+                onPress={()=>props.back()}>
           <Entypo name='arrow-left' size={40}/>
           <Text style={styles.headerText}> CityPop </Text>
-        </Pressable>
+        </Ripple>
       </SafeAreaView>
       <Text style={styles.title}> {props.name} </Text>
       <View style={styles.box}>
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
   header: {
     position: 'absolute',
     left: 10,
-    top: 40,
+    top: 50,
     borderWidth: 1,
     borderRadius: 4,
   },

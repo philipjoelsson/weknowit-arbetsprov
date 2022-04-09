@@ -9,16 +9,18 @@ const ChoosePresenter = ({ route, navigation }) => {
 
 
   const ChangeScreen = (toScreen, city) => {
-    navigation.navigate(toScreen, {
-      name: city.name,
-      population: city.population,
-    })
+    setTimeout(() => {
+      navigation.navigate(toScreen, {
+        name: city.name,
+        population: city.population,
+      })
+    }, 300);
   }
 
   return <ChooseScreen onChoose={(toScreen, city)=>ChangeScreen(toScreen, city)}
                           cities={cities}
                           country={cities[0].countryName}
-                          back={()=>navigation.goBack()}/>
+                          back={()=>setTimeout(()=>{navigation.goBack()},200)}/>
 }
 
 export default ChoosePresenter;
