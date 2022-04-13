@@ -9,11 +9,11 @@ const ResultScreen = (props) => {
     <View style={styles.container}>
       <SafeAreaView style={styles.header}>
         <Ripple style={styles.backBtn}
-                rippleColor='black'
+                rippleColor='#F4E9DC'
                 rippleDuration={1000}
                 rippleOpacity={1}
                 onPress={()=>props.back()}>
-          <Entypo name='arrow-left' size={40}/>
+          <Entypo name='arrow-left' size={40} color='#F4E9DC'/>
           <Text style={styles.headerText}> CityPop </Text>
         </Ripple>
       </SafeAreaView>
@@ -32,7 +32,7 @@ export default ResultScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F4E9DC',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -42,15 +42,17 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#494949',
   },
   box: {
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
     borderRadius: 4,
-    width: 300,
-    height: 125,
+    borderColor: '#494949',
+    width: '80%',
+    height: '18%',
   },
   pop: {
     position: 'absolute',
@@ -63,13 +65,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 10,
     top: 50,
-    borderWidth: 1,
     borderRadius: 4,
+    backgroundColor: '#E85E56',
   },
   headerText: {
     fontSize: 20,
     letterSpacing: 1,
     fontWeight: '500',
+    color: '#F4E9DC',
   },
   backBtn: {
     flexDirection: 'row',

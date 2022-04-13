@@ -11,19 +11,19 @@ const SearchCountryScreen = (props) => {
     <View style={styles.container}>
       <SafeAreaView style={styles.header}>
         <Ripple style={styles.backBtn}
-                rippleColor='black'
+                rippleColor='#F4E9DC'
                 rippleDuration={1000}
                 rippleOpacity={1}
                 onPress={()=>props.back()}>
-          <Entypo name='arrow-left' size={40}/>
+          <Entypo name='arrow-left' size={40} color='#F4E9DC'/>
           <Text style={styles.headerText}> CityPop </Text>
         </Ripple>
       </SafeAreaView>
       <Text style={styles.title}> SEARCH BY COUNTRY </Text>
       {props.loading ? <View style={styles.loader}><ActivityIndicator size='large' color='black' /></View> : <View></View>}
-      <TextInput style={styles.input} value={props.search} placeholder="Enter a country" textAlign='center' onChangeText={(txt)=>props.setSearch(txt)}/>
+      <TextInput style={styles.input} value={props.search} placeholder="Enter a country" placeholderTextColor='#494949' textAlign='center' onChangeText={(txt)=>props.setSearch(txt)}/>
       <Pressable style={({ pressed }) => [{transform: pressed ? [{ scale: 0.8 }] : [{ scale: 1 }] }, styles.button]} onPress={()=> {props.onSearch('Choose'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}}>
-        <AntDesign name='search1' size={40} color='black'/>
+        <AntDesign name='search1' size={40} color='#494949'/>
       </Pressable>
     </View>
 
@@ -35,7 +35,7 @@ export default SearchCountryScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F4E9DC',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -43,17 +43,19 @@ const styles = StyleSheet.create({
     position: 'absolute',
     textAlign: 'center',
     top: 200,
-    fontSize: 30,
+    fontSize: 40,
     fontWeight: 'bold',
     width: '80%',
+    color: '#494949',
   },
   input: {
-    backgroundColor: '#fff',
-    color: 'black',
+    backgroundColor: '#F4E9DC',
+    color: '#494949',
     borderWidth: 2,
     borderRadius: 4,
-    width: 250,
-    height: 50,
+    borderColor: '#E85E56',
+    width: '80%',
+    height: '8%',
     padding: 10,
     marginBottom: 10,
   },
@@ -64,23 +66,26 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     height: 60,
     width: 60,
+    color: '#494949',
   },
   header: {
     position: 'absolute',
     left: 10,
     top: 50,
-    borderWidth: 1,
     borderRadius: 4,
+    backgroundColor: '#E85E56',
   },
   headerText: {
     fontSize: 20,
     letterSpacing: 1,
     fontWeight: '500',
+    color: '#F4E9DC',
   },
   loader: {
     position: 'absolute',
     justifyContent: 'center',
     top: 300,
+    color: '#494949',
   },
   backBtn: {
     flexDirection: 'row',

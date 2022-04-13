@@ -9,31 +9,31 @@ const ChooseScreen = (props) => {
     <View style={styles.container}>
       <SafeAreaView style={styles.header}>
         <Ripple style={styles.backBtn}
-                rippleColor='black'
+                rippleColor='#F4E9DC'
                 rippleDuration={1000}
                 rippleOpacity={1}
                 onPress={()=>props.back()}>
-          <Entypo name='arrow-left' size={40}/>
+          <Entypo name='arrow-left' size={40} color='#F4E9DC'/>
           <Text style={styles.headerText}> CityPop </Text>
         </Ripple>
       </SafeAreaView>
       <Text style={styles.title}> {props.country} </Text>
       <Ripple style={styles.button}
-              rippleColor='black'
+              rippleColor='#F4E9DC'
               rippleDuration={1000}
               rippleOpacity={1}
               onPress={()=>props.onChoose('Result', props.cities[0])}>
         <Text style={styles.text}> {props.cities[0].name} </Text>
       </Ripple>
       <Ripple style={styles.button}
-              rippleColor='black'
+              rippleColor='#F4E9DC'
               rippleDuration={1000}
               rippleOpacity={1}
               onPress={()=>props.onChoose('Result', props.cities[1])}>
         <Text style={styles.text}> {props.cities[1].name} </Text>
       </Ripple>
       <Ripple style={styles.button}
-              rippleColor='black'
+              rippleColor='#F4E9DC'
               rippleDuration={1000}
               rippleOpacity={1}
               onPress={()=>props.onChoose('Result', props.cities[2])}>
@@ -49,7 +49,7 @@ export default ChooseScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F4E9DC',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -67,27 +67,28 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 4,
-    borderWidth: 2,
     elevation: 3,
-    backgroundColor: '#fff',
-    width: 250,
-    height: 50,
+    backgroundColor: '#E85E56',
+    width: '80%',
+    height: '8%',
     margin: 5,
   },
   text: {
     fontSize: 15,
+    color: '#F4E9DC',
   },
   header: {
     position: 'absolute',
     left: 10,
     top: 50,
-    borderWidth: 1,
     borderRadius: 4,
+    backgroundColor: '#E85E56',
   },
   headerText: {
     fontSize: 20,
     letterSpacing: 1,
     fontWeight: '500',
+    color: '#F4E9DC',
   },
   backBtn: {
     flexDirection: 'row',
