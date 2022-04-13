@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet, TextInput, SafeAreaView, ActivityIndicator } from 'react-native';
+import { View, Text, Pressable, StyleSheet, TextInput, SafeAreaView, ActivityIndicator, KeyboardAvoidingView } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as Haptics from 'expo-haptics';
@@ -8,8 +8,11 @@ const SearchCityScreen = (props) => {
 
   return (
 
-    <View style={styles.container}>
-      <SafeAreaView style={styles.header}>
+    <KeyboardAvoidingView style={styles.container}
+                          behavior={Platform.OS == "ios" ? "padding" : "height"}
+                          keyboardVerticalOffset={Platform.OS == "ios" ? 0 : 20}
+                          enabled={Platform.OS === "ios" ? false : false}>
+      <SafeAreaView style={[styles.header, Platform.OS === 'ios' ? {top: 50} : {top: 10}]}>
         <Ripple style={styles.backBtn}
                 rippleColor='#F4E9DC'
                 rippleDuration={1000}
@@ -25,7 +28,7 @@ const SearchCityScreen = (props) => {
       <Pressable style={({ pressed }) => [{transform: pressed ? [{ scale: 0.8 }] : [{ scale: 1 }] }, styles.button]} onPress={()=> {props.onSearch('Result'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}}>
         <AntDesign name='search1' size={40} color='black'/>
       </Pressable>
-    </View>
+    </KeyboardAvoidingView>
 
   );
 }
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
   },
   loader: {
     position: 'absolute',
-    top: 300,
+    top: '37%',
     justifyContent: 'center',
   },
   backBtn: {

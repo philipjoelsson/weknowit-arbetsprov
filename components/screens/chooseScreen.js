@@ -7,7 +7,7 @@ const ChooseScreen = (props) => {
   return (
 
     <View style={styles.container}>
-      <SafeAreaView style={styles.header}>
+      <SafeAreaView style={[styles.header, Platform.OS === 'ios' ? {top: 50} : {top: 10}]}>
         <Ripple style={styles.backBtn}
                 rippleColor='#F4E9DC'
                 rippleDuration={1000}
