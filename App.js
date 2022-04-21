@@ -7,7 +7,7 @@ import SearchCountryPresenter from './components/presenters/searchCountryPresent
 import ChoosePresenter from './components/presenters/choosePresenter.js';
 import ResultPresenter from './components/presenters/resultPresenter';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator(); // Creating a stack
 
 export default function App() {
 
@@ -16,7 +16,8 @@ export default function App() {
     <NavigationContainer>
       <StatusBar barStyle='dark-content'/>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomePresenter} options={{headerShown: false}}/>
+        // Defining screens with correct name, so they can be navigated to later
+        <Stack.Screen name="Home" component={HomePresenter} options={{headerShown: false}}/> // Disable header on all screens
         <Stack.Screen name="SearchCity" component={SearchCityPresenter} options={{headerShown: false}}/>
         <Stack.Screen name="SearchCountry" component={SearchCountryPresenter} options={{headerShown: false}}/>
         <Stack.Screen name="Choose" component={ChoosePresenter} options={{headerShown: false}}/>
