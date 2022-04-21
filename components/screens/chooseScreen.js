@@ -7,43 +7,42 @@ const ChooseScreen = (props) => {
   return (
 
     <View style={styles.container}>
-      // Depending on platform we want different margin on top
+      {/* Depending on platform we want different margin on top */}
       <SafeAreaView style={[styles.header, Platform.OS === 'ios' ? {top: 50} : {top: 10}]}>
         <Ripple style={styles.backBtn}
                 rippleColor='#F4E9DC'
                 rippleDuration={1000}
                 rippleOpacity={1}
-                onPress={()=>props.back()}> // When pressed, go back
+                onPress={()=>props.back()}>{/* When pressed, go back */}
           <Entypo name='arrow-left' size={40} color='#F4E9DC'/>
           <Text style={styles.headerText}> CityPop </Text>
         </Ripple>
       </SafeAreaView>
       <Text style={styles.title}> {props.country} </Text>
-      //Ripple creates a ripple-effect when pressed
+      {/* Ripple creates a ripple-effect when pressed */}
+      {/* When pressed call function props.onChoose and pass on screen which screen to navigate to and the city */}
       <Ripple style={styles.button}
-              // Customization for ripple-effect
               rippleColor='#F4E9DC'
               rippleDuration={1000}
               rippleOpacity={1}
-              // When pressed call function props.onChoose and pass on screen which screen to navigate to and the city
               onPress={()=>props.onChoose('Result', props.cities[0])}>
-        <Text style={styles.text}> {props.cities[0].name} </Text> // Largest city
+        <Text style={styles.text}> {props.cities[0].name} </Text>{/* Largest city */}
       </Ripple>
+      {/* When pressed call function props.onChoose and pass on screen which screen to navigate to and the city */}
       <Ripple style={styles.button}
               rippleColor='#F4E9DC'
               rippleDuration={1000}
               rippleOpacity={1}
-              // When pressed call function props.onChoose and pass on screen which screen to navigate to and the city
               onPress={()=>props.onChoose('Result', props.cities[1])}>
-        <Text style={styles.text}> {props.cities[1].name} </Text> // Second largest city
+        <Text style={styles.text}> {props.cities[1].name} </Text>{/* Second largest city */}
       </Ripple>
+      {/* When pressed call function props.onChoose and pass on screen which screen to navigate to and the city */}
       <Ripple style={styles.button}
               rippleColor='#F4E9DC'
               rippleDuration={1000}
               rippleOpacity={1}
-              // When pressed call function props.onChoose and pass on which screen to navigate to and the city
               onPress={()=>props.onChoose('Result', props.cities[2])}>
-        <Text style={styles.text}> {props.cities[2].name} </Text> // Thirs largest city
+        <Text style={styles.text}> {props.cities[2].name} </Text>{/* Thirs largest city */}
       </Ripple>
     </View>
 
@@ -52,7 +51,7 @@ const ChooseScreen = (props) => {
 
 export default ChooseScreen;
 
-// Styles
+{/* Styles */}
 const styles = StyleSheet.create({
   container: {
     flex: 1,

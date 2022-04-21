@@ -8,28 +8,29 @@ const SearchCountryScreen = (props) => {
 
   return (
 
-    // KeyboardAvoidingView makes sure the view proportions stays the same when keyboard is shown
     <KeyboardAvoidingView style={styles.container}
                           behavior={Platform.OS == "ios" ? "padding" : "height"}
                           enabled={Platform.OS === "ios" ? false : false}>
+      {/* KeyboardAvoidingView makes sure the view proportions stays the same when keyboard is shown */}
       <SafeAreaView style={[styles.header, Platform.OS === 'ios' ? {top: 50} : {top: 10}]}>
-        <Ripple style={styles.backBtn} // Ripple creates a ripple-effect when pressed
+        {/* Ripple creates a ripple-effect when pressed */}
+        <Ripple style={styles.backBtn}
                 rippleColor='#F4E9DC'
                 rippleDuration={1000}
                 rippleOpacity={1}
-                onPress={()=>props.back()}> // When pressed, go back to earlier screen
-          <Entypo name='arrow-left' size={40} color='#F4E9DC'/> // Arrowicon imported
+                onPress={()=>props.back()}>{/* When pressed, go back to earlier screen */}
+          <Entypo name='arrow-left' size={40} color='#F4E9DC'/>{/* Arrow-icon imported */}
           <Text style={styles.headerText}> CityPop </Text>
         </Ripple>
       </SafeAreaView>
       <Text style={styles.title}> SEARCH BY COUNTRY </Text>
-      // If loading, const defined in searchCityPresenter, show the ActivityIndicator
+      {/* If loading, const defined in searchCityPresenter, show the ActivityIndicator */}
       {props.loading ? <View style={styles.loader}><ActivityIndicator size='large' color='black' /></View> : <View></View>}
       <TextInput style={styles.input} value={props.search} placeholder="Enter a country" placeholderTextColor='#494949' textAlign='center' onChangeText={(txt)=>props.setSearch(txt)}/>
-      // Feedback added to button, scaling it when pressed
-      // Also adding Haptics, and calling props.onSearch with the screen which we should navigate to
+      {/* Feedback added to button, scaling it when pressed
+          Also adding Haptics, and calling props.onSearch with the screen which we should navigate to */}
       <Pressable style={({ pressed }) => [{transform: pressed ? [{ scale: 0.8 }] : [{ scale: 1 }] }, styles.button]} onPress={()=> {props.onSearch('Choose'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}}>
-        <AntDesign name='search1' size={40} color='#494949'/> // Search-icon imported
+        <AntDesign name='search1' size={40} color='#494949'/>{/* Search-icon imported */}
       </Pressable>
     </KeyboardAvoidingView>
 
@@ -38,7 +39,7 @@ const SearchCountryScreen = (props) => {
 
 export default SearchCountryScreen;
 
-// Styles
+{/* Styles */}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
