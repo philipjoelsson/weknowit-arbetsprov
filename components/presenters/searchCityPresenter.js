@@ -43,7 +43,7 @@ const SearchCityPresenter = ({ navigation }) => {
     }
   }
 
-  {/* Returning ChooseScreen with the parameters and functions used, delay on goBack for animation */}
+  {/* Returning SearchCityScreen with the parameters and functions used, delay on goBack for animation */}
   return <SearchCityScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}
                            setSearch={(txt)=>setSearch(txt)}
                            search={search}
