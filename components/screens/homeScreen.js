@@ -7,13 +7,15 @@ const HomeScreen = (props) => {
 
     <View style={styles.container}>
       <Text style={styles.title}> CityPop </Text>
-      <Ripple style={styles.button}
+      // Button for searching by city
+      <Ripple style={styles.button} // Ripple creates a ripple-effect when pressed
               rippleColor='#F4E9DC'
               rippleDuration={1000}
               rippleOpacity={1}
               onPress={()=>props.onPress('SearchCity')}>
         <Text style={styles.text}> SEARCH BY CITY </Text>
       </Ripple>
+      // Button for searching by country
       <Ripple style={styles.button}
               rippleColor='#F4E9DC'
               rippleDuration={1000}
@@ -28,6 +30,7 @@ const HomeScreen = (props) => {
 
 export default HomeScreen;
 
+// Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,

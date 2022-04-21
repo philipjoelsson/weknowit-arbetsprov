@@ -5,23 +5,26 @@ import { ActivityIndicator, View, StyleSheet, Alert } from 'react-native';
 
 const SearchCityPresenter = ({ navigation }) => {
 
-  const [search, setSearch] = React.useState('');
-  const [isLoading, setIsLoading] = React.useState(false);
+  // Defining states
+  const [search, setSearch] = React.useState(''); // Const storing the current search
+  const [isLoading, setIsLoading] = React.useState(false); // Const storing if page is loading
 
+  // Function for changing screen, navigating to the new screen and also passing on correct parameters
   const ChangeScreen = (toScreen) => {
-    if (search.length > 0) {
-      if ((/[A-Za-z]/).test(search)) {
-
+    if (search.length > 0) { // Making sure the user have typed in anything
+      if ((/[A-Za-z]/).test(search)) { // Making sure only letters have been used in search
         setIsLoading(true);
+        // Calling API and search for city
         GetDataFromApi.searchCity(search)
           .then((data) => {
             setIsLoading(false);
+            // When data is retrieved, navigate to new screen with parameters from data
             navigation.navigate(toScreen, {
               name: data.geonames[0].name,
               population: data.geonames[0].population,
             })
            })
-          .catch((error) => {
+          .catch((error) => { // Catching error, alerting the user city could not be found
             setIsLoading(false);
             Alert.alert('Could not find city');
            })
@@ -35,15 +38,17 @@ const SearchCityPresenter = ({ navigation }) => {
     }
   }
 
+  // Returning ChooseScreen with the parameters and functions used
   return <SearchCityScreen onSearch={(toScreen)=>ChangeScreen(toScreen)}
-                           setSearch={(txt)=>setSearch(txt)}
+                           setSearch={(txt)=>setSearch(txt)} // Function setting the search
                            search={search}
-                           back={()=>setTimeout(()=>{navigation.goBack()},200)}
+                           back={()=>setTimeout(()=>{navigation.goBack()},200)} // Delay for animation
                            loading={isLoading}/>
 }
 
 export default SearchCityPresenter;
 
+// Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,

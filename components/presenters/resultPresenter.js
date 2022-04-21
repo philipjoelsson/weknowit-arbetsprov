@@ -5,15 +5,18 @@ import React from 'react';
 
 const ResultPresenter = ({ route, navigation }) => {
 
-  const { name, population } = route.params;
+  const { name, population } = route.params; // Get parameters from earlier screen
 
+  // Returning ResultScreen with parameters used
   return <ResultScreen population={population}
                        name={name}
-                       back={()=>setTimeout(()=>{navigation.goBack()},200)}/>
+                       back={()=>setTimeout(()=>{navigation.goBack()},200)} // Delay for animation
+                       />
 }
 
 export default ResultPresenter;
 
+// Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
