@@ -11,23 +11,28 @@ const SearchCountryPresenter = ({ navigation }) => {
 
   const ChangeScreen = (toScreen) => {
     if (search.length > 0) {
-      setIsLoading(true);
-      GetDataFromApi.searchCountry(search)
-        .then((data) => {return GetDataFromApi.searchCities(data.geonames[0].countryCode)})
-        .then((data) => {
-          setIsLoading(false);
-          navigation.navigate(toScreen, {
-            cities: data.geonames,
-            search: search,
+      if ((/[A-Za-z]/).test(search)) {
+        setIsLoading(true);
+        GetDataFromApi.searchCountry(search)
+          .then((data) => {return GetDataFromApi.searchCities(data.geonames[0].countryCode)})
+          .then((data) => {
+            setIsLoading(false);
+            navigation.navigate(toScreen, {
+              cities: data.geonames,
+              search: search,
+            })
           })
-        })
-        .catch((error) => {
-          setIsLoading(false);
-          Alert.alert('Could not find country');
-        })
+          .catch((error) => {
+            setIsLoading(false);
+            Alert.alert('Could not find country');
+          })
+      }
+      else {
+        Alert.alert('Please only enter letters');
+      }
     }
     else {
-      Alert.alert('Please enter something before search')
+      Alert.alert('Please enter something before search');
     }
   }
 

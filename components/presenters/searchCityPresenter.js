@@ -10,22 +10,28 @@ const SearchCityPresenter = ({ navigation }) => {
 
   const ChangeScreen = (toScreen) => {
     if (search.length > 0) {
-      setIsLoading(true);
-      GetDataFromApi.searchCity(search)
-        .then((data) => {
-          setIsLoading(false);
-          navigation.navigate(toScreen, {
-            name: data.geonames[0].name,
-            population: data.geonames[0].population,
-          })
-         })
-        .catch((error) => {
-          setIsLoading(false);
-          Alert.alert('Could not find city');
-         })
+      if ((/[A-Za-z]/).test(search)) {
+
+        setIsLoading(true);
+        GetDataFromApi.searchCity(search)
+          .then((data) => {
+            setIsLoading(false);
+            navigation.navigate(toScreen, {
+              name: data.geonames[0].name,
+              population: data.geonames[0].population,
+            })
+           })
+          .catch((error) => {
+            setIsLoading(false);
+            Alert.alert('Could not find city');
+           })
+      }
+      else {
+        Alert.alert('Please only enter letters');
+      }
     }
     else {
-      Alert.alert('Please enter something before search')
+      Alert.alert('Please enter something before search');
     }
   }
 
